@@ -1,12 +1,11 @@
 'use client'
 
-import Header from '@/components/header'
+import FilterBar from '@/components/filter-bar'
 
 export default function Home() {
   return (
     <main>
-      <Header />
-      <h1>Hello world</h1>
+      <FilterBar />
     </main>
   )
 }
