@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import useFilter from '@/hooks/use-filter'
 import ArrowIcon from './icons/arrow-icon'
-import { FilterPriorityType } from '@/@types/filter-types'
+import { FilterPriorityType } from '@/types/filter-types'
 
 const FilterContainer = styled.div`
   position: relative;

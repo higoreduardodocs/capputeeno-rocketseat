@@ -2,7 +2,7 @@
 
 import { ReactNode, createContext, useState } from 'react'
 
-import { FilterType, FilterPriorityType } from '@/@types/filter-types'
+import { FilterType, FilterPriorityType } from '@/types/filter-types'
 
 export const FilterContext = createContext({
   type: FilterType.ALL,
