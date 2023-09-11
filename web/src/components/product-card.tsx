@@ -2,6 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 import styled from 'styled-components'
 
+import { formatPrice } from '@/utils/format'
+
 interface CardProps {
   image: string;
   title: string;
@@ -49,7 +51,7 @@ export default function ProductCard(props: CardProps) {
       <img src={props.image} title={props.title} />
       <div>
         <h3>{props.title}</h3>
-        <span>{props.price}</span>
+        <span>{formatPrice(props.price)}</span>
       </div>
     </CardContainer>
   )
