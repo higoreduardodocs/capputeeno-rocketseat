@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import CartIcon from './icons/cart-icon'
+import useLocalStorage from '@/hooks/use-localStorage'
 
 const CartContainer = styled.div`
   position: relative;
@@ -23,10 +24,12 @@ const CountSpan = styled.span`
 `
 
 export default function CartControl() {
+  const { value } = useLocalStorage('cart-items', [])
+
   return (
     <CartContainer>
       <CartIcon />
-      <CountSpan>2</CountSpan>
+      <CountSpan>{value?.length}</CountSpan>
     </CartContainer>
   )
 }
