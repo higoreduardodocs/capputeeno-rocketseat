@@ -1,7 +1,33 @@
-export default function mountQuery() {
+import { FilterPriorityType, FilterType } from '@/types/filter-types'
+
+export function getCategoryByType(type: FilterType) {
+  if (type === FilterType.MUG) return 'mugs'
+  if (type === FilterType.SHIRT) return 't-shirts'
+  return ''
+}
+
+export function getFieldByPriority(priority: FilterPriorityType) {
+  if (priority === FilterPriorityType.NEWS) return { field: "created_at", order: "ASC" }
+  if (priority === FilterPriorityType.BIGGEST_PRICE) return { field: "price_in_cents", order: "ASC" }
+  if (priority === FilterPriorityType.MINOR_PRICE) return { field: "price_in_cents", order: "DSC" }
+  return { field: "sales", order: "DSC" }
+}
+
+export default function mountQuery(type: FilterType, priority: FilterPriorityType) {
+  const typeFilter = getCategoryByType(type)
+  const priorityFilter = getFieldByPriority(priority)
+
+  if (type === FilterType.ALL && priority === FilterPriorityType.NEWS)
+    return `
+      query {
+        allProducts (sortField: "sales", sortOrder: "DSC") {
+          id, name, image_url, price_in_cents, category
+        }
+      }
+    `
   return `
     query {
-      allProducts {
+      allProducts(sortField: "${priorityFilter.field}", sortOrder: "${priorityFilter.order}", ${typeFilter ? `filter: { category: "${typeFilter}"}`: ''}) {
         id, name, image_url, price_in_cents, category
       }
     }

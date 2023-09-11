@@ -9,6 +9,8 @@ export const FilterContext = createContext({
   setType: (value: FilterType) => {},
   priority: FilterPriorityType.NEWS,
   setPriority: (value: FilterPriorityType) => {},
+  search: '',
+  setSearch: (value: string) => {},
 })
 
 interface ProviderProps {
@@ -20,9 +22,10 @@ export default function FilterContextProvider({ children }: ProviderProps) {
   const [priority, setPriority] = useState<FilterPriorityType>(
     FilterPriorityType.NEWS
   )
+  const [search, setSearch] = useState<string>('')
 
   return (
-    <FilterContext.Provider value={{ type, setType, priority, setPriority }}>
+    <FilterContext.Provider value={{ type, setType, priority, setPriority, search, setSearch }}>
       {children}
     </FilterContext.Provider>
   )

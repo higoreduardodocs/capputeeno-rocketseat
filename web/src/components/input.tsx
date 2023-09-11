@@ -29,10 +29,17 @@ const InputField = styled.input`
   }
 `
 
-export default function Input() {
+interface InputProps {
+  value: string
+  handleChange: (value: string) => void
+}
+
+export default function Input(props: InputProps) {
   return (
     <InputContainer>
-      <InputField placeholder="Procurando por algo específico?" />
+      <InputField
+        onChange={(e) => props.handleChange(e.target.value)}
+        placeholder="Procurando por algo específico?" />
       <SearchIcon />
     </InputContainer>
   )
