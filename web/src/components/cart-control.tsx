@@ -5,6 +5,7 @@ import useLocalStorage from '@/hooks/use-localStorage'
 
 const CartContainer = styled.div`
   position: relative;
+  cursor: pointer;
 `
 
 const CountSpan = styled.span`

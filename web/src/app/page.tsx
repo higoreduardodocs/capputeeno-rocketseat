@@ -1,5 +1,3 @@
-'use client'
-
 import FilterBar from '@/components/filter-bar'
 import ProductList from '@/components/product-list'
 import DefaultLayout from '@/components/default-layout'

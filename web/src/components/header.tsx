@@ -40,6 +40,7 @@ const Logo = styled.a`
   line-height: 150%;
   color: var(--logo-color);
   cursor: pointer;
+  text-decoration: none;
 `
 
 export default function Header() {
@@ -47,7 +48,7 @@ export default function Header() {
   
   return (
     <TagHeader>
-      <Logo className={sairaStencilOne.className}>Capputeeno</Logo>
+      <Logo href="/" className={sairaStencilOne.className}>Capputeeno</Logo>
       <div>
         <Input value={search} handleChange={setSearch} />
         <CartControl />

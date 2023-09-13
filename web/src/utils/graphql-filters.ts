@@ -21,14 +21,14 @@ export default function mountQuery(type: FilterType, priority: FilterPriorityTyp
     return `
       query {
         allProducts (sortField: "sales", sortOrder: "DSC") {
-          id, name, image_url, price_in_cents, category
+          id, name, image_url, price_in_cents
         }
       }
     `
   return `
     query {
       allProducts(sortField: "${priorityFilter.field}", sortOrder: "${priorityFilter.order}", ${typeFilter ? `filter: { category: "${typeFilter}"}`: ''}) {
-        id, name, image_url, price_in_cents, category
+        id, name, image_url, price_in_cents
       }
     }
   `

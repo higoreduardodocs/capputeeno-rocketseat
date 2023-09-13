@@ -1,6 +1,8 @@
+'use client'
+
 import styled from 'styled-components'
 
-import useProduct from '@/hooks/use-product'
+import { useProducts } from '@/hooks/use-product'
 import ProductCard from './product-card'
 
 const ProductGrid = styled.section`
@@ -10,12 +12,12 @@ const ProductGrid = styled.section`
 `
 
 export default function ProductList() {
-  const { data: products } = useProduct()
+  const { data: products } = useProducts()
 
   return (
     <ProductGrid>
       {products?.length && products.map((item) => (
-        <ProductCard key={item.id} image={item.image_url} title={item.name} price={item.price_in_cents} />
+        <ProductCard key={item.id} id={item.id} image={item.image_url} title={item.name} price={item.price_in_cents} />
       ))}
     </ProductGrid>
   )

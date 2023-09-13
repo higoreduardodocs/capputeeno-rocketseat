@@ -3,9 +3,14 @@ export interface ProductType {
   name: string
   image_url: string
   price_in_cents: number
-  category: string
+  category?: string
+  description?: string
+}
+
+export interface ProductsFetchResponseType {
+  data: { allProducts: ProductType[] }
 }
 
 export interface ProductFetchResponseType {
-  data: { allProducts: ProductType[] }
+  data: { Product: ProductType }
 }
