@@ -14,15 +14,24 @@ const sairaStencilOne = Saira_Stencil_One({
 
 const TagHeader = styled.header`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 160px;
+  padding: 20px 40px;
   background-color: #fff;
 
   > div {
     display: flex;
     align-items: center;
     gap: 24px;
+  }
+
+  @media screen and (min-width: ${props => props.theme.desktopBreakpoint}) {
+    padding: 20px 160px;
+  }
+
+  @media screen and (min-width: ${props => props.theme.mobileBreakpoint}) {
+    flex-direction: row;
   }
 `
 const Logo = styled.a`

@@ -10,22 +10,32 @@ interface FilterItemProps {
 const FilterList = styled.ul`
   display: flex;
   align-items: center;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 10px;
   list-style: none;
+  
+  @media screen and (min-width: ${props => props.theme.mobileBreakpoint}) {
+    gap: 40px;
+    flex-wrap: no-wrap;
+  }
 `
 
 const FilterItem = styled.li<FilterItemProps>`
   font-family: inherit;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: ${(props) => (props.selected ? '600' : '400')};
   line-height: 22px;
   color: ${(props) =>
     props.selected ? 'var(--text-black)' : 'var(--text-dark)'};
-  text-transform: uppercase;
-  padding: 4px 0;
-  cursor: pointer;
-  border-bottom: ${(props) =>
-    props.selected ? '4px solid var(--orange-low)' : ''};
+    text-transform: uppercase;
+    padding: 4px 0;
+    cursor: pointer;
+    border-bottom: ${(props) =>
+      props.selected ? '4px solid var(--orange-low)' : ''};
+  
+  @media screen and (min-width: ${props => props.theme.mobileBreakpoint}) {      
+    font-size: 16px;
+  }
 `
 
 export default function FilterByType() {

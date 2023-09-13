@@ -7,14 +7,18 @@ const InputContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
-  width: 352px;
-
+  width: 250px;
+  
   > svg {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+  }
+  
+  @media screen and (min-width: ${props => props.theme.desktopBreakpoint}) {
+    width: 352px;
   }
 `
 const InputField = styled.input`
@@ -23,9 +27,16 @@ const InputField = styled.input`
   border: none;
   border-radius: 8px;
   width: 100%;
-
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+  
   &::placeholder {
     color: var(--text-dark);
+  }
+
+  @media screen and (min-width: ${props => props.theme.desktopBreakpoint}) {
+    font-size: 14px;
   }
 `
 
