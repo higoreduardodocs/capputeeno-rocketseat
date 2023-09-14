@@ -7,6 +7,10 @@ export interface ProductType {
   description?: string
 }
 
+export interface ProductInCart extends ProductType {
+  quantity: number
+}
+
 export interface ProductsFetchResponseType {
   data: { allProducts: ProductType[] }
 }

@@ -34,7 +34,6 @@ const CardContainer = styled.article`
       font-size: 16px;
       font-weight: 300;
       line-height: 24px;
-      letter-spacing: 0;
       color: var(--text-dark);
     }
 
@@ -42,7 +41,6 @@ const CardContainer = styled.article`
       font-size: 14px;
       font-weight: 600;
       line-height: 21px;
-      letter-spacing: 0;
       color: var(--text-black);
     }
   }
