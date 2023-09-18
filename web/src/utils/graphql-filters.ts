@@ -13,22 +13,28 @@ export function getFieldByPriority(priority: FilterPriorityType) {
   return { field: "sales", order: "DSC" }
 }
 
-export default function mountQuery(type: FilterType, priority: FilterPriorityType) {
+export default function mountQuery(type: FilterType, priority: FilterPriorityType, page: number, perPage: number) {
   const typeFilter = getCategoryByType(type)
   const priorityFilter = getFieldByPriority(priority)
 
   if (type === FilterType.ALL && priority === FilterPriorityType.NEWS)
     return `
       query {
-        allProducts (sortField: "sales", sortOrder: "DSC") {
+        allProducts (sortField: "sales", sortOrder: "DSC", page: ${page}, perPage: ${perPage}) {
           id, name, image_url, price_in_cents
+        },
+        count: allProducts (sortField: "sales", sortOrder: "DSC") {
+          id
         }
       }
     `
   return `
     query {
-      allProducts(sortField: "${priorityFilter.field}", sortOrder: "${priorityFilter.order}", ${typeFilter ? `filter: { category: "${typeFilter}"}`: ''}) {
+      allProducts(sortField: "${priorityFilter.field}", sortOrder: "${priorityFilter.order}", ${typeFilter ? `filter: { category: "${typeFilter}"}`: ''}, page: ${page}, perPage: ${perPage}) {
         id, name, image_url, price_in_cents
+      },
+      count: allProducts (sortField: "${priorityFilter.field}", sortOrder: "${priorityFilter.order}", ${typeFilter ? `filter: { category: "${typeFilter}"}`: ''}) {
+        id
       }
     }
   `

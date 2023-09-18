@@ -12,7 +12,7 @@ export interface ProductInCart extends ProductType {
 }
 
 export interface ProductsFetchResponseType {
-  data: { allProducts: ProductType[] }
+  data: { allProducts: ProductType[], count: string[] }
 }
 
 export interface ProductFetchResponseType {
